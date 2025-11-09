@@ -1,2 +1,1 @@
-# hackUTD-SAM
-sam
+# SAM
