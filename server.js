@@ -32,6 +32,11 @@ app.get('/register', (req, res) => {
    res.sendFile(path.join(__dirname, 'public', 'register.html'));
 });
 
+// GET route for register page
+app.get('/register', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'register.html'));
+});
+
 // POST route for login
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
