@@ -29,20 +29,7 @@ function saveUsers(users) {
 
 // GET route for register page
 app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'register.html'));
-});
-
-// POST route for registration
-app.post('/register', (req, res) => {
-    const { email, password } = req.body;
-    let users = getUsers();
-    if (users.find(u => u.email === email)) {
-        return res.send('Email already registered. <a href="/register">Try again</a>');
-    }
-    const hashedPassword = bcrypt.hashSync(password, 10);
-    users.push({ email, password: hashedPassword });
-    saveUsers(users);
-    res.send('Registration successful! <a href="/">Go to Login</a>');
+   res.sendFile(path.join(__dirname, 'public', 'register.html'));
 });
 
 // POST route for login
