@@ -1,2 +1,0 @@
-# hackUTD-SAM
-sam
