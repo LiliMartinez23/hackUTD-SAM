@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <button id="sidebarToggle" aria-expanded="true" aria-controls="sidebar" class="toggle-btn">☰</button>
+            <h1 class="title">SVA</h1>
+        </header>
+
+        <h2 class="page-title">Profile</h2>
+
+        <aside id="sidebar" class="sidebar">
+            <nav>
+            <ul class="nav">
+                <li><a href="/profile.html" class="active"><i class="fa-regular fa-user"></i>&nbsp;&nbsp;Profile</a></li>
+                <li><a href="/data.html"><i class="fa-regular fa-chart-bar"></i>&nbsp;&nbsp;Data Visualizations</a></li>
+                <li><a href="/analysis.html"><i class="fa-regular fa-file-lines"></i>&nbsp;&nbsp;Geographical Analysis</a></li>
+                <li><a href="/index.html" id="logout-link"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Log Out</a></li>
+            </ul>
+            </nav>
+        </aside>
+
+        <main class="main-container">
+          <section class="card wide">
+            <div class="profile-content" id="profile-root">
+              <!-- Profile will render here -->
+            </div>
+          </section>
+        </main>
+    </div>
+    <script src="/script.js"></script>
+    <script>
+      async function loadProfile() {
+        const root = document.getElementById('profile-root');
+        const params = new URLSearchParams(window.location.search);
+        const emailParam = params.get('email');
+        const savedEmail = (() => { try { return localStorage.getItem('currentEmail'); } catch { return null; } })();
+        const effectiveEmail = emailParam || savedEmail;
+        if (!effectiveEmail) {
+          root.innerHTML = '<p style="color:#fff;">No email specified.</p>';
+          return;
+        }
+        const endpoint = `/api/users/${encodeURIComponent(effectiveEmail)}`;
+        try {
+          const res = await fetch(endpoint);
+          if (!res.ok) throw new Error('Failed to load profile');
+          const data = await res.json();
+          const users = Array.isArray(data) ? data : (data ? [data] : []);
+          if (users.length === 0) throw new Error('No users found');
+          renderUsers(root, users);
+        } catch (err) {
+          root.innerHTML = `<p style="color:#fff;">${err.message}</p>`;
+        }
+      }
+
+      function renderUsers(root, users) {
+        root.innerHTML = `
+          <div style="display:flex; flex-direction:column; gap:16px; width:100%;">
+            ${users.map(u => renderUserCard(u)).join('')}
+          </div>
+        `;
+      }
+
+      function renderUserCard(user) {
+        return `
+          <div style="display:flex; gap:24px; align-items:flex-start; width:800px; height:auto; padding:12px; border:1px solid rgba(255,255,255,0.2); border-radius:12px; background: rgba(255,255,255,0.06);">
+            <div style="flex:0 0 100px; height:100px; border-radius:50%; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:28px;">
+              <i class="fa-regular fa-user"></i>
+            </div>
+            <div style="flex:1; text-align:left;">
+              <p style="margin:4px 0;"><strong>Email:</strong> ${escapeHtml(user.email)}</p>
+              <p style="margin:4px 0;"><strong>Role:</strong> ${escapeHtml(user.role)}</p>
+              <div style="margin-top:8px; opacity:0.9;">${escapeHtml(user.bio)}</div>
+            </div>
+          </div>
+        `;
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      loadProfile();
+    </script>
+</body>
+</html>
