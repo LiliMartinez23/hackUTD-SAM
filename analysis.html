@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analysis</title>
+
+    <!-- same styling and icons -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </head>
+
+          </ul>
+        </nav>
+      </aside>
+  <body>
+    <div class="grid-container">
+      <header class="header">
+        <button id="sidebarToggle" aria-expanded="true" aria-controls="sidebar" class="toggle-btn">☰</button>
+        <h1 class="title">VSA</h1>
+      </header>
+      <h2 class="page-title">Geographical Analytics</h2>
+
+      <aside id="sidebar" class="sidebar">
+        <nav>
+          <ul class="nav">
+            <li><a href="#"><i class="fa-regular fa-user"></i>&nbsp;&nbsp; Profile</a></li>
+            <li><a href="./data.html"><i class="fa-regular fa-chart-bar"></i>&nbsp;&nbsp; Data Visualizations</a></li>
+            <li><a href="./analysis.html" class="active"><i class="fa-regular fa-file-lines"></i>&nbsp;&nbsp; Geographical Analytics</a></li>
+
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-container">
+        <section class="card large">
+  <div class="viz-wrap">
+    <iframe
+      class="viz-frame"
+      src="https://public.tableau.com/views/reportedsuggestionscompliments/Sheet6?:showVizHome=no&:embed=true&:toolbar=hidden&:showShareOptions=false&:display_count=n"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
+<!-- Reported Outages & Complaints-->
+<section class="card viz-card wide">
+  <div class="viz-wrap">
+    <iframe
+      class="viz-frame"
+      src="https://public.tableau.com/views/ReportedOutagesComplaints/Sheet4?:showVizHome=no&:embed=true&:toolbar=hidden&:showShareOptions=false&:display_count=n"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
+
+
+<!-- Reported Outages & Complaints (wide full card) -->
+<section class="card viz-card wide">
+  <div class="viz-wrap">
+    <iframe
+      class="viz-frame"
+      src="https://public.tableau.com/views/ReportedOutagesComplaints/Sheet5?:showVizHome=no&:embed=true&:toolbar=hidden&:showShareOptions=false&:display_count=n"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
+
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pattankaran&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  </head>
+  <body>
+    <div class="grid-container">
+      <header class="header">
+        <button id="sidebarToggle" aria-expanded="true" aria-controls="sidebar" class="toggle-btn">☰</button>
+        <h1 class="title">SVA</h1>
+        
+      </header>
+       <h2 class="page-title">Data Visualizations</h2>
+     
+
+
+      <aside id="sidebar" class="sidebar">
+        <nav>
+          <ul class="nav">
+            <li><a href="#"><i class="fa-regular fa-user"></i>&nbsp;&nbsp; Profile</a></li>
+            <li><a href="#"class="active"><i class="fa-regular fa-chart-bar"></i>&nbsp;&nbsp; Data Visualizations</a></li>
+            <li><a href="./analysis.html"><i class="fa-regular fa-file-lines"></i>&nbsp;&nbsp;Geographical Analysis</a></li>
+
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-container">
+        
+        
+<!--Customer Product Usage-->
+<section class="card viz-card">
+  <div class="viz-wrap">
+    <iframe
+      class="viz-frame"
+      src="https://public.tableau.com/views/Customerproductusage/Sheet2?:showVizHome=no&:embed=true&:toolbar=hidden&:showShareOptions=false&:display_count=n"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!--Outages & Opportunities -->
+<section class="card viz-card">
+  <div class="viz-wrap">
+    <iframe
+      class="viz-frame"
+      src="https://public.tableau.com/views/thewiz/Sheet9?:showVizHome=no&:embed=true&:toolbar=hidden&:showShareOptions=false&:display_count=n"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
+
+
+<!--Satisfaction per rating -->
+<section class="card wide">
+  <div class="viz-wrap">
+    <iframe
+      class="viz-frame"
+      src="https://public.tableau.com/views/SatisfactionPerRating/Sheet3?:showVizHome=no&:embed=true&:toolbar=hidden&:showShareOptions=false&:display_count=n"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
+
+<!--Satisfaction per Interaction Type-->
+<section class="card wide">
+  <div class="viz-wrap">
+    <iframe
+      class="viz-frame"
+      src="https://public.tableau.com/views/Outagesnopportunties/Sheet1?:showVizHome=no&:embed=true&:toolbar=hidden&:showShareOptions=false&:display_count=n"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
+
+
+
+
+        
+        
+        
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
