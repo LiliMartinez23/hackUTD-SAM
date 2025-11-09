@@ -56,7 +56,7 @@ app.get('/register', (req, res) => {
 
 // POST route for registration
 app.post('/register', (req, res) => {
-    const { email, password, role, bio } = req.body;
+    const { email, password, role, bio, name } = req.body;
     let users = getUsers();
     if (users.find(u => u.email === email)) {
         return res.send('Email already registered. <a href="/register">Try again</a>');
@@ -65,8 +65,11 @@ app.post('/register', (req, res) => {
     const allowedRoles = new Set(['Admin', 'Staff']);
     const safeRole = allowedRoles.has(role) ? role : 'User';
     const safeBio = typeof bio === 'string' ? bio.trim().slice(0, 500) : '';
+    const safeName = (typeof name === 'string' && name.trim())
+        ? name.trim().slice(0, 80)
+        : defaultNameFromEmail(email);
 
-    users.push({ email, password: hashedPassword, role: safeRole, bio: safeBio });
+    users.push({ email, password: hashedPassword, role: safeRole, bio: safeBio, name: safeName });
     saveUsers(users);
     res.send('Registration successful! <a href="/">Go to Login</a>');
 });
