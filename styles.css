@@ -27,7 +27,7 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-
   height: 100px;
   
 
-  background-image: url("images.jpg");
+  background-image: url("/img/images.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

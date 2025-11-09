@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title>T-Mobile SVA Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <section>
@@ -22,10 +22,10 @@
                    <input type="password" name="password" required>
                     <label>Password</label>
                 </div>
-                <div class="remember-forget">
+                <!-- <div class="remember-forget">
                     <label><input type="checkbox"> Remember me</label>
                     <a href="">Forgot password?</a>
-                </div>
+                </div> -->
                 <button type="submit">Login</button>
             </form>
         </div>
@@ -34,5 +34,18 @@
     <!-- Scripts -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('form[action="/login"]');
+        if (form) {
+          form.addEventListener('submit', () => {
+            const emailInput = form.querySelector('input[name="email"]');
+            if (emailInput && emailInput.value) {
+              try { localStorage.setItem('currentEmail', emailInput.value); } catch {}
+            }
+          });
+        }
+      });
+    </script>
 </body>
 </html>

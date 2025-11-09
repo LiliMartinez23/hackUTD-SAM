@@ -1,18 +1,26 @@
 [
   {
-    "email": "lilianafinona3@gmail.com",
-    "password": "$2b$10$D1oBKYO9CP13vZd4dfzwwO5yFEHs.8frrqopFzwqmSrFdULapfLu6"
-  },
-  {
-    "email": "mariana@gmail.com",
-    "password": "$2b$10$1PL9jPGY65KsWSxW0eZd7O6PhDVLP3s2Z.lKo4CU0t4yrVkUyOhZK"
+    "email": "liliana@gmail.com",
+    "password": "$2b$10$Yh5DNJ08KmeArVU3hUXxJOpPfn258fxpsAKywAQncUg4cb4K6F5Mu",
+    "role": "Admin",
+    "bio": "Testing 123"
   },
   {
     "email": "izzy@outlook.com",
-    "password": "$2b$10$LcySPNMUDWK.PxdKWIaBVOF8vAO4ijU0mNsmXxTnqpGOaE78UO/7q"
+    "password": "$2b$10$b646.SqrLuWB87cUUHFKWeP4NokKWJebgTX8ZijrTZKdiMBsdq/xW",
+    "role": "Staff",
+    "bio": "Izzy's bio"
   },
   {
-    "email": "juan@outlook.com",
-    "password": "$2b$10$1K2fVspcMTe57eNCdJgfwe0ILa2J8RELiAzYgj/4bx6QIrIBMDc.C"
+    "email": "mariana@outlook.com",
+    "password": "$2b$10$T9IRi3KIpE4Cty3vCJIFrOiJ7eocP.tg.bj223I8TnbgXbrBZ7fEC",
+    "role": "Staff",
+    "bio": "Mariana loves strawberries and Roblox."
+  },
+  {
+    "email": "juan@gmail.com",
+    "password": "$2b$10$YE7g.uGklkZhiSrC9edV8uVmbGWLURmZgJz.hDoMbNuAeiqcl.tvC",
+    "role": "Admin",
+    "bio": "Diva."
   }
 ]
